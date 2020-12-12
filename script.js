@@ -15,28 +15,37 @@ generateBtn.addEventListener("click", writePassword);
 
 
 //my code move later
+//Function selector object
+const randFuncSel = {
+  numerals: getRandNum,
+  lower: getRandLow,
+  upper: getRandUp,
+  specialchar: getRandSpecial,
+  }
 
 //Functions
-console.log(getRandSpecial());
+
+//generate numerals
+function getRandNum(min, max) {
+  min = Math.ceil(0);
+  max = Math.floor(9);
+  return Math.floor(Math.random() * (max - min +1)) + min;
+}
 
 //generate lowercase characters
 function getRandLow() {
   return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
 }
+
 //generate uppercase characters
 function getRandUp() {
   return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
 }
-//generate numerals
-function getRandNum() {
-  return String.fromCharCode(Math.floor(Math.random()) * 10 + 48)
-}
+
 //generate special characters
 function getRandSpecial() {
-  const specialChar = '`~!@#$%^&*()_+-=[]{}\/;:,.';
-  return specialChar[Math.floor(Math.random() * specialChar.length)];
+  const specialCharAll = '`~!@#$%^&*()_+-=[]{}\/;:,.';
+  return specialCharAll[Math.floor(Math.random() * specialCharAll.length)];
 }
 
-
-
-console.log();
+console.log(getRandNum());
