@@ -16,8 +16,8 @@ generateBtn.addEventListener("click", writePassword);
 
 //my code move later
 
-//Generation
-console.log(getRandUp());
+//Functions
+console.log(getRandSpecial());
 
 //generate lowercase characters
 function getRandLow() {
@@ -27,4 +27,16 @@ function getRandLow() {
 function getRandUp() {
   return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
 }
+//generate numerals
+function getRandNum() {
+  return String.fromCharCode(Math.floor(Math.random()) * 10 + 48)
+}
+//generate special characters
+function getRandSpecial() {
+  const specialChar = '`~!@#$%^&*()_+-=[]{}\/;:,.';
+  return specialChar[Math.floor(Math.random() * specialChar.length)];
+}
+
+
+
 console.log();
