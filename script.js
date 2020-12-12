@@ -15,3 +15,16 @@ generateBtn.addEventListener("click", writePassword);
 
 
 //my code move later
+
+//Generation
+console.log(getRandUp());
+
+//generate lowercase characters
+function getRandLow() {
+  return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+}
+//generate uppercase characters
+function getRandUp() {
+  return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+}
+console.log();
