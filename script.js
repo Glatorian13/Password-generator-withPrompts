@@ -3,7 +3,7 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword(numerals, lower, upper, specialchar);
+  var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
@@ -13,27 +13,10 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-
-//my code move later
-//Output and results
-
-//undef vars???
-var pwL;
-
-//Function selector object 
-const randFuncSel = {
-  numerals: getRandNum,
-  lower: getRandLow,
-  upper: getRandUp,
-  specialchar: getRandSpecial,
-};
-
-//event listener based on given code?
-
-
-
-//Functions
-
+//additonal variables to declare
+var pwGenHolder = "";
+var passLength = 0;
+//self-randomizing variables
 //generate numerals
 var getRandNum = function funcRandNum(min, max) {
   min = Math.ceil(0);
@@ -59,18 +42,43 @@ var getRandSpecial = function funcRandSpecial() {
 
 //password parameters
 
-//password length function, needs to be called to run
-var passLength = function funcPwLength() {
-  do {
-    var pwL = parseInt(window.prompt("Choose password length between 8 to 128 characters.", ""), 10);
-  }
-  while (isNaN(pwL) || pwL > 128 || pwL < 8);
-  alert("Your password will be " + pwL + " characters long.");
-  return pwL;
+//password length prompt
+var passLength = parseInt(prompt("Choose password length between 8 and 128.", ""));
+
+//int needed as password length value
+while (isNaN(passLength)) {
+  var passLength = parseInt(prompt("Hmm, that is not a number. Enter a number between 8 to 128.", ""));
 }
+//check password length
+while (passLength < 8 || passLength > 128) {
+  var passLength = parseInt(prompt("Re-enter length of password, must be between 8 and 128.", ""));
+}
+//alert user to password length
+alert("Your password will be " + passLength + " characters long.");
 
 //confirmation prompts
 var userSelLower = confirm("Include lowercase letters?");
 var userSelUpper = confirm("Include uppercase letters?");
 var userSelNum = confirm("Include numbers?");
 var userSelSpecial = confirm("Include special characters?");
+
+//call funtions to generate password
+//function generatePassword() {
+// if (userSelLower) {
+//   pwGenHolder += getRandLow;
+// }
+//  if (userSelUpper) {
+//    pwGenHolder += getRandUp;
+//  }
+// if (userSelNum) {
+//   pwGenHolder += getRandNum
+// }
+// if (userSelSpecial) {
+//   pwGenHolder =+ getRandSpecial;
+// }
+// for (let i = 0; < passLength; i++) {
+//   
+//  }
+//}
+
+console.log(passLength);
