@@ -15,13 +15,16 @@ generateBtn.addEventListener("click", writePassword);
 
 
 //my code move later
-//Function selector object
+//Output and results
+
+//Function selector object 
+//IN PROGRESS DOES NOT WORK
 const randFuncSel = {
   numerals: getRandNum,
   lower: getRandLow,
   upper: getRandUp,
   specialchar: getRandSpecial,
-  }
+};
 
 //Functions
 
@@ -29,7 +32,7 @@ const randFuncSel = {
 function getRandNum(min, max) {
   min = Math.ceil(0);
   max = Math.floor(9);
-  return Math.floor(Math.random() * (max - min +1)) + min;
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 //generate lowercase characters
@@ -48,4 +51,12 @@ function getRandSpecial() {
   return specialCharAll[Math.floor(Math.random() * specialCharAll.length)];
 }
 
-console.log(getRandNum());
+//password parameters
+
+//password length loop and alert
+do {
+  var passLength = parseInt(window.prompt("Choose password length between 8 to 128 characters.", ""), 10);
+}
+while (isNaN(passLength) || passLength > 128 || passLength < 8);
+
+alert("Your password will be " + passLength + " characters long.");
